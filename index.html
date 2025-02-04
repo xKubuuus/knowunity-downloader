@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Knowunity Downloader</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-800 text-white flex justify-center items-center min-h-screen">
+    <div class="bg-gray-600 w-2/3 h-80 rounded-3xl pl-5 pr-5 flex flex-col justify-center items-center">
+        <h1 class="text-2xl text-center mb-5 pt-8 font-bold">Knowunity Downloader</h1>
+        <input type="text" id="url" placeholder="Enter URL" class="border-2 border-gray-300 p-2 rounded-lg w-full mb-4">
+        <button onclick="getUrl()" class="flex justify-center items-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105">Get URL</button>
+
+        <div id="response" class="flex justify-center items-center mt-4"></div>
+        <div class="mt-10 text-xs text-center mb-4">
+            <p>Check this project on <a class="text-blue-300" href="https://github.com/xKubuuus/knowunity-downloader">GitHub</a>!</p>
+        </div>
+    </div>
+
+    <script>
+        function getUrl() {
+            let url = document.getElementById("url").value;
+            let response = document.getElementById('response');
+
+            fetch(`/api/getUrl?url=${url}`)
+                .then(response => response.text())
+                .then(data => {
+                    response.innerHTML = data;
+                });
+        }
+    </script>
+</body>
+</html>
