@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 5055;
 
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
@@ -18,6 +19,6 @@ app.get('/api/getUrl', (req, res) => {
     });
 });
 
-app.listen(5055, () => {
+app.listen(PORT, () => {
     console.log('Server is running on http://localhost:5055');
 });
