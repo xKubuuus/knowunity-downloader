@@ -1,6 +1,6 @@
 {
   "name": "knowunity-downloader",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "simple knowunity downloader",
   "main": "app.js",
   "scripts": {
